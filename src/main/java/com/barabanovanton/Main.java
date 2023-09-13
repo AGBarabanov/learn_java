@@ -1,22 +1,67 @@
 package com.barabanovanton;
 
-import java.util.Arrays;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         //Массивы
         int[] intArr = new int[]{1, 421, 123};
-        int[] intArr0 = new int[3];
+        int[] intArr0 = new int[5];
         intArr0[0] = 1;
         intArr0[1] = 421;
         intArr0[2] = 123;
+        intArr0[3] = -100;
+        intArr0[4] = 21;
         System.out.println("Длина массива " + intArr0.length);
         System.out.println("Массив " + Arrays.toString(intArr0));
 
         //Циклы
         for(int i = 0; i < intArr0.length; i++){
-            System.out.println(intArr0[i]);
+            if(intArr0[i] == -100){
+                System.out.println(intArr0[i]);
+                break;                              //Заканчивает весь цикл
+                                                    // continue - Заканчивает итерацию
+            }
+            System.out.println("Next iteration");
         }
+
+        for (int element : intArr0) {
+            System.out.println(element);
+        }
+
+        int indexForLoop = 0;
+        while (indexForLoop < intArr0.length){
+            System.out.println(intArr0[indexForLoop]);
+
+            indexForLoop++;
+        }
+
+//        В любом случае будет одна итерация
+//        do {
+//            do smth
+//        }while ("true");
+
+
+        //КОЛЛЕКЦИИ
+
+        //List<Integer> intList = new ArrayList<>();
+        List<Integer> intList = List.of(1, 421, 123);
+        intList.add(1);
+        intList.remove((Integer) 1);
+
+        //Set<String> stringSet = new HashSet<>();
+        Set<String> stringSet = Set.of("Anton", "Vasya");       //Могут храниться только уникальные обьекты
+
+        //Map<String, People> exampleMap = new HashMap<>();
+        Map<String, People> exampleMap = Map.of(
+                "1234", new People(),
+                "5432", new People()
+                );
+        exampleMap.get("1234");
+        //exampleMap.containsKey("5432");
+        Set<String> keySet = exampleMap.keySet();
+        Collection<People> values = exampleMap.values();
+
 
 
 
